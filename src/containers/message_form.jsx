@@ -1,1 +1,3 @@
-message_form.jsx
+import React, { Component } from 'react';
+
+export default MessageForm;
