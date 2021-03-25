@@ -11,7 +11,7 @@ class ChannelList extends Component {
     return (
       <div className="channels" >
         {this.props.channels.map((channel) => {
-          return <Channel channel={channel} />
+          return <Channel key={channel.name} channel={channel} />
         })}
 
       </div>
