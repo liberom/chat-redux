@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Message from './message';
+import { loadMessages } from '../actions';
 
 // Component or Container and Action
 
@@ -21,13 +22,13 @@ class MessageList extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    // { setCities: setCities }, dispatch
+    { loadMessages: loadMessages }, dispatch
   );
 }
 
 function mapStateToProps(state) {
   return {
-    // cities: state.cities
+    messages: state.messages
   };
 }
 

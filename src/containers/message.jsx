@@ -10,10 +10,10 @@ const Message = (props) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    // cities: state.cities
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     // cities: state.cities
+//   };
+// }
 
-export default connect(mapStateToProps)(Message);
+export default (Message);

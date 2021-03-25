@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Channel from './channel';
+import { loadChannels } from '../actions';
 
 // Component or Container and Action
 
@@ -22,13 +23,13 @@ class ChannelList extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    // { setCities: setCities }, dispatch
+    { loadChannels: loadChannels }, dispatch
   );
 }
 
 function mapStateToProps(state) {
   return {
-    // cities: state.cities
+    channels: state.channels
   };
 }
 

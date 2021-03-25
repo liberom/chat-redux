@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { setActiveChannel } from '../actions';
+
 // Component or Container and Action
 
 class Channel extends Component {
@@ -10,20 +12,19 @@ class Channel extends Component {
       <div className='channel' >
         {this.props.channel.name}
       </div>
-        }
     );
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    // { setCities: setCities }, dispatch
+    { setActiveChannel: setActiveChannel }, dispatch
   );
 }
 
 function mapStateToProps(state) {
   return {
-    // cities: state.cities
+    activeChannel: state.activeChannel
   };
 }
 

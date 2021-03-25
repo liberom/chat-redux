@@ -16,16 +16,16 @@ class MessageForm extends Component {
 
 }
 
-unction mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    // { setCities: setCities }, dispatch
-  );
-}
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators(
+//     // { setCities: setCities }, dispatch
+//   );
+// }
 
-function mapStateToProps(state) {
-  return {
-    // cities: state.cities
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     // cities: state.cities
+//   };
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
+export default (MessageForm);
