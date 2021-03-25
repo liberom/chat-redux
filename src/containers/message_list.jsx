@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Message from '../components/message';
+import Message from './message';
 
 // Component or Container and Action
 
