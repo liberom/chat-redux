@@ -2,9 +2,21 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import Channel from './channel';
+
 // Component or Container and Action
 
 class ChannelList extends Component {
+  render() {
+    return (
+      <div className="channels" >
+        {this.props.channels.map((channel) => {
+          return <Channel channel={channel} />
+        })}
+
+      </div>
+    );
+  }
 
 }
 
