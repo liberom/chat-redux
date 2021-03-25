@@ -13,11 +13,15 @@ export function loadChannels() {
   };
 }
 
-export function loadMessages() {
-  return {
-    type: LOAD_MESSAGES,
-    payload: messages
-  };
+export function loadMessages(channel) {
+  return fetch(`https://wagon-chat.herokuapp.com/${channel}/messages`)
+  .then(response => response.json())
+  .then((data) => {
+    return {
+      type: LOAD_MESSAGES,
+      payload: data.messages
+    };
+  });
 }
 
 export function setActiveChannel(channel) {

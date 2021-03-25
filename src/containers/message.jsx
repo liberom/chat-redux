@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 const Message = (props) => {
   return (
     <div className='message' >
-      <strong><p>{props.message.username}</p></strong>
-      <p>{props.message.text}</p>
+      <strong><p>{props.message.author}</p></strong>
+      <p>{props.message.content}</p>
     </div>
   );
 };
