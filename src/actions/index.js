@@ -1,4 +1,4 @@
-// TODO: add and export your own actions
+const BASE_URL = 'https://wagon-chat.herokuapp.com';
 
 export const LOAD_CHANNELS = 'LOAD_CHANNELS';
 export const LOAD_MESSAGES = 'LOAD_MESSAGES';
@@ -32,10 +32,21 @@ export function setActiveChannel(channel) {
   };
 }
 
-export function postMessage(message) {
+export function postMessage(channel, author, content) {
+  const url = `${BASE_URL}/${channel}/messages`;
+  const body = { author, content }; // ES6 destructuring
+  const promise = fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(r => r.json());
+
   return {
     type: POST_MESSAGE,
-    payload: message
+    payload: promise
   };
 }
 
