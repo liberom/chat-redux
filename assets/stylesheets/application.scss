@@ -87,6 +87,7 @@ body {
   padding: 20px 20px 0 28px;
   box-sizing: border-box;
   height: 100%;
+  // min-height: calc(100vh - 70px);
   overflow: scroll;
 }
 
@@ -114,13 +115,15 @@ body {
   margin: 5px 0 10px;
 }
 
-// .channel-editor {
-//   display: flex;
-//   padding: 20px;
-//   box-sizing: border-box;
-//   height: 90px;
-//   border-top: 1px solid #f4f4f4;
-// }
+.channel-editor {
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 90px;
+  border-top: 1px solid #f4f4f4;
+  // position: absolute;
+  // margin: calc(100vh - 70px) 20em 5px 5px;
+}
 
 input[type="text"] {
   padding: 10px;
