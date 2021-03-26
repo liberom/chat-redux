@@ -12,7 +12,6 @@ const App = () => {
       </div>
       <ChannelList />
       <MessageList />
-      <MessageForm />
     </div>
   );
 };

@@ -11,9 +11,9 @@ import { loadMessages } from '../actions';
 
 
 class MessageList extends Component {
-  componentWillMount(){
-    this.fetchMessages();
-  }
+  // componentWillMount(){
+  //   this.fetchMessages();
+  // }
 
   fetchMessages = () => {
     this.props.loadMessages(this.props.activeChannel);
