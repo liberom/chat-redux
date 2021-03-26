@@ -13,53 +13,53 @@ body {
 
 /* Column 1/3 *****************************************************************/
 
-// .logo-container {
-//   padding: 10px;
-//   width: 60px;
-//   height: 100%;
-//   background: #dbdbdb;
-//   box-sizing: border-box;
-// }
+.logo-container {
+  padding: 10px;
+  width: 60px;
+  height: 100%;
+  background: #dbdbdb;
+  box-sizing: border-box;
+}
 
-// .messaging-logo {
-//   width: 40px;
-//   height: 40px;
-// }
+.messaging-logo {
+  width: 40px;
+  height: 40px;
+}
 
 /* Column 2/3 *****************************************************************/
 
-// .channels-container {
-//   padding: 20px;
-//   width: 220px;
-//   height: 100%;
-//   background: #f4f4f4;
-//   box-sizing: border-box;
-// }
+.channels-container {
+  padding: 20px;
+  width: 220px;
+  height: 100%;
+  background: #f4f4f4;
+  box-sizing: border-box;
+}
 
-// .channels-container > span {
-//   font-weight: 900;
-// }
+.channels-container > span {
+  font-weight: 900;
+}
 
-// .channels-container > ul {
-//   list-style: none;
-//   -webkit-margin-before: 2em;
-//   -webkit-margin-after: 0em;
-//   -webkit-margin-start: 0px;
-//   -webkit-margin-end: 0px;
-//   -webkit-padding-start: 0px;
-// }
+.channels-container > ul {
+  list-style: none;
+  -webkit-margin-before: 2em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+}
 
-// .channels-container > ul > li {
-//   margin: 10px 0;
-//   font-size: 14px;
-//   color: #7c7c7c;
-//   cursor: pointer;
-// }
+.channels-container > ul > li {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #7c7c7c;
+  cursor: pointer;
+}
 
-// .channels-container > ul > li.active {
-//   font-weight: 600;
-//   color: black
-// }
+.channels-container > ul > li.active {
+  font-weight: 600;
+  color: black
+}
 
 /* Column 3/3 *****************************************************************/
 
