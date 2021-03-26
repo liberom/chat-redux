@@ -1,9 +1,8 @@
+
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
-// Component or Container and Action
-import { postMessage } from '../actions';
+import { createMessage } from '../actions/index';
 
 class MessageForm extends Component {
   constructor(props) {
@@ -21,13 +20,13 @@ class MessageForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.postMessage(this.props.activeChannel, this.props.currentUser, this.state.value);
+    this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
     this.setState({ value: '' }); // Reset message input
   }
 
   render() {
     return (
-      <form className="channel-editor" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="channel-editor">
         <input
           ref={(input) => { this.messageBox = input; }}
           type="text"
@@ -38,22 +37,18 @@ class MessageForm extends Component {
         />
         <button type="submit">Send</button>
       </form>
-
     );
   }
-
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { postMessage }, dispatch
-  );
+  return bindActionCreators({ createMessage }, dispatch);
 }
 
 function mapStateToProps(state) {
   return {
-    activeChannel: state.activeChannel,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    selectedChannel: state.selectedChannel
   };
 }
 

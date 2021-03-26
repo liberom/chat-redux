@@ -1,24 +1,23 @@
+
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { fetchMessages } from '../actions';
+import Message from '../components/message';
 import MessageForm from '../containers/message_form';
-import Message from './message';
-
-// Component or Container and Action
-import { loadMessages } from '../actions';
 
 class MessageList extends Component {
-  componentWillMount(){
+  componentWillMount() {
     this.fetchMessages();
   }
 
   componentDidMount() {
-    this.refresher = setInterval(this.fetchMessages, 2000);
+    this.refresher = setInterval(this.fetchMessages, 5000);
   }
 
   componentDidUpdate() {
-    this.list.scrollBottom = this.list.scrollHeight;
+    this.list.scrollTop = this.list.scrollHeight;
   }
 
   componentWillUnmount() {
@@ -26,38 +25,37 @@ class MessageList extends Component {
   }
 
   fetchMessages = () => {
-    this.props.loadMessages(this.props.activeChannel);
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
-  render() {
+  render () {
     return (
-      <div className='channel-container'>
-        <div className='channel-title'>
-          <span>Channel #{this.props.activeChannel}</span>
+      <div className="channel-container">
+        <div className="channel-title">
+          <span>Channel #{this.props.selectedChannel}</span>
         </div>
-        <div className='channel-content' ref={(list) => { this.list = list; }}>
-          {this.props.messages.map((message) => {
-            return <Message key={message.id} message={message} />;
-          })}
+        <div className="channel-content" ref={(list) => { this.list = list; }}>
+          {
+            this.props.messages.map((message) => {
+              return <Message key={message.id} message={message} />;
+            })
+          }
         </div>
         <MessageForm />
       </div>
     );
   }
-
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { loadMessages }, dispatch
-  );
 }
 
 function mapStateToProps(state) {
   return {
     messages: state.messages,
-    activeChannel: state.activeChannel
+    selectedChannel: state.selectedChannel
   };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchMessages }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
