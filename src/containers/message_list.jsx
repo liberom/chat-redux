@@ -4,16 +4,26 @@ import { connect } from 'react-redux';
 
 import MessageForm from '../containers/message_form';
 import Message from './message';
-import { loadMessages } from '../actions';
 
 // Component or Container and Action
-
-
+import { loadMessages } from '../actions';
 
 class MessageList extends Component {
-  // componentWillMount(){
-  //   this.fetchMessages();
-  // }
+  componentWillMount(){
+    this.fetchMessages();
+  }
+
+  componentDidMount() {
+    this.refresher = setInterval(this.fetchMessages, 2000);
+  }
+
+  componentDidUpdate() {
+    this.list.scrollBottom = this.list.scrollHeight;
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refresher);
+  }
 
   fetchMessages = () => {
     this.props.loadMessages(this.props.activeChannel);
@@ -27,7 +37,7 @@ class MessageList extends Component {
         </div>
         <div className='channel-content' ref={(list) => { this.list = list; }}>
           {this.props.messages.map((message) => {
-            return <Message key={message.content} message={message} />;
+            return <Message key={message.id} message={message} />;
           })}
         </div>
         <MessageForm />
